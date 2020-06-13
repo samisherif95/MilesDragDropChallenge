@@ -2,7 +2,7 @@ import React from "react";
 import { useDrop } from "react-dnd";
 import { ItemTypes } from './rewards';
 
-function Category({title, index, showRewards, changeRewardPos, createNewRewardObject}) {
+function Category({name, index, showRewards, changeRewardPos, createNewRewardObject}) {
   console.log(createNewRewardObject);
   const [collectedProps, drop] = useDrop({
     accept: ItemTypes.REWARD,
@@ -14,7 +14,7 @@ function Category({title, index, showRewards, changeRewardPos, createNewRewardOb
   });
   return (
     <div className="category-item">
-      <div className="category-name">{title}</div>
+      <div className="category-name">{name}</div>
       <div className="category-lane" ref={drop}>
         {showRewards(index)}
       </div>

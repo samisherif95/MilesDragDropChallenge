@@ -5,13 +5,13 @@ export const ItemTypes = {
   REWARD: "reward",
 };
 
-function Rewards({ title, idx, changeRewardPos, createID, catID }) {
+function Rewards({ name, idx, changeRewardPos, createID, catID }) {
   const [{ isDragging }, drag] = useDrag({
     item: { type: ItemTypes.REWARD },
     begin: (monitor) => ({
       type: ItemTypes.REWARD,
       idx: idx,
-      title: title,
+      name: name,
       catID: catID,
       createID: createID,
     }),
@@ -22,7 +22,7 @@ function Rewards({ title, idx, changeRewardPos, createID, catID }) {
 
   return (
     <div
-      className={`reward-item-${title}`}
+      className={`reward-item-${name}`}
       ref={drag}
       style={{
         opacity: isDragging ? 0.5: 1,
@@ -30,7 +30,7 @@ function Rewards({ title, idx, changeRewardPos, createID, catID }) {
         cursor: "move",
       }}
     >
-      {title}
+      {name}
       {
         changeRewardPos ? 
           <span className="deletebutton" onClick={() => changeRewardPos(createID)}> X</span>

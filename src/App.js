@@ -30,14 +30,14 @@ function App() {
     window.localStorage.setItem("numberReward", JSON.stringify(AmountOfRewards));
   }, [initializedRewards, AmountOfRewards]); //useEffect will happen with any change of these two variables
 
-  function renderRewards(catID) {
+  function showRewards(catID) {
     console.log(initializedRewards);
     return initializedRewards.map((reward, idx) => {
       if (reward.catID === catID) {
         return (
           <Rewards
             key={idx}
-            title={reward.title}
+            name={reward.name}
             createID={reward.createID}
             idx={reward.idx}
             catID={catID}
@@ -68,7 +68,7 @@ function App() {
       })
     ) {
       let newReward = {
-        title: item.title,
+        name: item.name,
         idx: item.idx,
         createID: AmountOfRewards + 1,
         catID: categoryIdx,
@@ -114,20 +114,20 @@ function App() {
       <div className="table">
         <div className="rewards">
           <span className="rewardTitle">Rewards</span>
-          {rewards.map((title, idx) => {
-            return <Rewards key={idx} idx={idx} title={title} />;
+          {rewards.map((name, idx) => {
+            return <Rewards key={idx} idx={idx} name={name} />;
           })}
         </div>
         <div className="categories">
           <span className="categoryTitle">Categories</span>
           <div className="categoryContent">
-            {categories.map((title, idx) => {
+            {categories.map((name, idx) => {
               return (
                 <Category
                   key={idx}
-                  title={title}
+                  name={name}
                   index={idx}
-                  showRewards={renderRewards}
+                  showRewards={showRewards}
                   createNewRewardObject={createNewRewardObject}
                   changeRewardPos={changeRewardPos}
                 />
