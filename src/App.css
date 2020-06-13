@@ -1,0 +1,164 @@
+.App{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table{
+  background-color: lightgray;
+  width: 75vw;
+  min-width: 600px;
+  height: 600px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.rewards{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.reward-container{
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rewardTitle{
+  color: red;
+  font-weight: 900;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 40px;
+  border-bottom: solid black 1px;
+}
+
+
+.reward-item-R1{
+  background-color: gold;
+  color: red;
+  top: 100px;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  padding: 25px;
+  border: black solid 1px;
+  position: fixed;
+}
+.reward-item-R2{
+  background-color: gold;
+  color: red;
+  top: 200px;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  padding: 25px;
+  border: black solid 1px;
+  position: fixed;
+}
+.reward-item-R3{
+  background-color: gold;
+  color: red;
+  top: 300px;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  padding: 25px;
+  border: black solid 1px;
+  position: fixed;
+}
+.reward-item-R4{
+  background-color: gold;
+  color: red;
+  top: 400px;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  padding: 25px;
+  border: black solid 1px;
+  position: fixed;
+}
+.reward-item-R5{
+  background-color: gold;
+  color: red;
+  top: 500px;
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+  padding: 25px;
+  border: black solid 1px;
+  position: fixed;
+}
+
+
+.deletebutton{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: xx-small;
+  cursor: pointer;
+}
+
+.categories{
+  margin: 10px;
+  text-align: center;
+  width: 75%;
+  height: 98.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.categoryTitle{
+  color: red;
+  font-weight: 900;
+  width: 107%;
+  padding: 10px;
+  border-bottom: solid black 1px;
+}
+
+.categoryContent{
+  width: 100%;
+  min-width: 615px;
+  height: 100%;
+  display: flex;
+  padding: 0px 20px 0px 20px;
+  justify-content: space-evenly;
+  border-left: 1px solid black;
+}
+
+.category-container:last-child{
+  border-right:1px solid black;
+}
+
+.category-item{
+  width: 100%;
+  min-width: 70px;
+  border-left: 1px solid black;
+}
+.category-item:last-of-type{
+  border-right: 1px solid black;
+}
+
+.category-name{
+  color: red;
+  font-weight: 900;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.category-lane{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
