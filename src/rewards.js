@@ -1,15 +1,15 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-export const ItemTypes = {
+export const Items = {
   REWARD: "reward",
 };
 
 function Rewards({ name, idx, changeRewardPos, createID, catID }) {
   const [{ isDragging }, drag] = useDrag({
-    item: { type: ItemTypes.REWARD },
+    item: { type: Items.REWARD },
     begin: (monitor) => ({
-      type: ItemTypes.REWARD,
+      type: Items.REWARD,
       idx: idx,
       name: name,
       catID: catID,

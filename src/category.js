@@ -1,11 +1,11 @@
 import React from "react";
 import { useDrop } from "react-dnd";
-import { ItemTypes } from './rewards';
+import { Items } from './rewards';
 
 function Category({name, index, showRewards, changeRewardPos, createNewRewardObject}) {
   console.log(createNewRewardObject);
   const [collectedProps, drop] = useDrop({
-    accept: ItemTypes.REWARD,
+    accept: Items.REWARD,
     //checks if there is a category Id for the reward(item) and if yes then changes the 
     // category column if no creates a new reward(item) in that category column
     drop: (item, monitor) => {

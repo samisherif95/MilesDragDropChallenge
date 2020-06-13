@@ -30,6 +30,14 @@ function App() {
     window.localStorage.setItem("numberReward", JSON.stringify(AmountOfRewards));
   }, [initializedRewards, AmountOfRewards]); //useEffect will happen with any change of these two variables
 
+  //Not fully implemented as of now removes last added reward
+  function undoReward() {
+    let currRewards = Object.assign([], initializedRewards);
+    currRewards.pop()
+    setInitializedRewards(currRewards)
+  }
+
+
   function showRewards(catID) {
     console.log(initializedRewards);
     return initializedRewards.map((reward, idx) => {
@@ -47,39 +55,6 @@ function App() {
       }
     });
   }
-
-  //Not fully implemented as of now removes last added reward
-  function undoReward(){
-  	let currRewards = Object.assign([], initializedRewards);
-  	currRewards.pop()
-  	setInitializedRewards(currRewards)
-  }
-
-  // creates new reward in specific category depending on ID and item is the current rewward
-  function createNewRewardObject(categoryIdx, item) {
-    let currRewards = Object.assign([], initializedRewards);// all the curr rewards 
-    let rewardID = item.idx;
-
-    // checks if any of the previous rewards placed are the same for that category
-    //if not then creates new reward
-    if (
-      !currRewards.some((reward) => {
-        return reward.idx === rewardID && reward.catID === categoryIdx;
-      })
-    ) {
-      let newReward = {
-        name: item.name,
-        idx: item.idx,
-        createID: AmountOfRewards + 1,
-        catID: categoryIdx,
-      };
-
-      currRewards.push(newReward);
-      setInitializedRewards(currRewards);
-      setAmountOfRewards(AmountOfRewards + 1);
-    }
-  }
-
   //updates the position of the reward if changed
   function changeRewardPos(createID, categoryIdx) {
     let currRewards = Object.assign([], initializedRewards);
@@ -106,6 +81,30 @@ function App() {
     }
     //each change updates initialized rewards
     setInitializedRewards(currRewards);
+  }
+
+  // creates new reward in specific category depending on ID and item is the current rewward
+  function createNewRewardObject(categoryIdx, item) {
+    let currRewards = Object.assign([], initializedRewards);// all the curr rewards 
+    let rewardID = item.idx;
+    // checks if any of the previous rewards placed are the same for that category
+    //if not then creates new reward
+    if (
+      !currRewards.some((reward) => {
+        return reward.idx === rewardID && reward.catID === categoryIdx;
+      })
+    ) {
+      let newReward = {
+        name: item.name,
+        idx: item.idx,
+        createID: AmountOfRewards + 1,
+        catID: categoryIdx,
+      };
+
+      currRewards.push(newReward);
+      setInitializedRewards(currRewards);
+      setAmountOfRewards(AmountOfRewards + 1);
+    }
   }
 
 
